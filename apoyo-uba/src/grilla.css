@@ -1,0 +1,42 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: auto;
+  gap: 20px;
+  justify-content: center;
+}
+
+.card {
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  height: auto;
+  width: 400px;
+  cursor: pointer;
+}
+
+.Matematicas {
+  background-color: rgb(129, 129, 6);
+}
+
+.ingles {
+  background-color: black;
+  color: rgb(184, 17, 17);
+}
+
+.quimica {
+  background-color: rgb(60, 72, 165);
+}
+
+.card img {
+  width: 50%;
+  object-fit: cover;
+  aspect-ratio: 16/9;
+}
+
+/* Media Query */
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
