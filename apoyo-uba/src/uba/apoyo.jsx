@@ -47,11 +47,7 @@ export default function Apoyo() {
             </button>
             {abiertoPrincipal && (
               <div className="dropdown-content">
-                {datos.map((materia, i) => (
-                  <Link key={i} to={`/materia/${materia.toLowerCase()}`}>
-                    {materia}
-                  </Link>
-                ))}
+                <Link to="/quienes-somos">Quiénes somos</Link>
               </div>
             )}
           </div>
