@@ -34,3 +34,60 @@
 .read-the-docs {
   color: #888;
 }
+.logo {
+  width: 80px;
+  margin-right: 20px;
+}
+
+.nose {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Contenedor de los dos botones */
+.botones-menu {
+  display: flex;
+  gap: 20px; /* <-- espacio entre botones */
+}
+
+/* Botón desplegable */
+.dropbtn {
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  padding: 10px 15px;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+/* Contenedor del dropdown */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Contenido del menú desplegable */
+.dropdown-content {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  z-index: 1;
+}
+
+/* Links del menú */
+.dropdown-content a {
+  color: black;
+  padding: 10px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
