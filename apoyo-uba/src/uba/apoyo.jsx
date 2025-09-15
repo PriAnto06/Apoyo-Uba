@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function Apoyo() {
   const [abiertoPrincipal, setAbiertoPrincipal] = useState(false);
@@ -22,14 +23,12 @@ export default function Apoyo() {
   return (
     <>
       <div className="nose">
-        {/* Logo */}
         <img
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Logo_de_la_Universidad_de_Buenos_Aires.jpg/960px-Logo_de_la_Universidad_de_Buenos_Aires.jpg"
           alt="UBA"
           className="logo"
         />
 
-        {/* Barra de búsqueda */}
         <input
           type="text"
           placeholder="Matemática..."
@@ -37,7 +36,6 @@ export default function Apoyo() {
           onChange={(e) => setBusqueda(e.target.value)}
         />
 
-        {/* Contenedor para los botones */}
         <div className="botones-menu">
           {/* Botón Página principal */}
           <div className="dropdown">
@@ -49,8 +47,11 @@ export default function Apoyo() {
             </button>
             {abiertoPrincipal && (
               <div className="dropdown-content">
-                <a href="/quienes-somos">¿Quiénes Somos?</a>
-                <a href="/contacto">Contacto</a>
+                {datos.map((materia, i) => (
+                  <Link key={i} to={`/materia/${materia.toLowerCase()}`}>
+                    {materia}
+                  </Link>
+                ))}
               </div>
             )}
           </div>
@@ -66,9 +67,9 @@ export default function Apoyo() {
             {abiertoMaterias && (
               <div className="dropdown-content">
                 {datos.map((materia, i) => (
-                  <a key={i} href={`/materia/${materia.toLowerCase()}`}>
+                  <Link key={i} to={`/materia/${materia.toLowerCase()}`}>
                     {materia}
-                  </a>
+                  </Link>
                 ))}
               </div>
             )}
@@ -85,9 +86,9 @@ export default function Apoyo() {
             {abiertoApuntes && (
               <div className="dropdown-content">
                 {datos.map((materia, i) => (
-                  <a key={i} href={`/apuntes/${materia.toLowerCase()}`}>
+                  <Link key={i} to={`/apuntes/${materia.toLowerCase()}`}>
                     {materia}
-                  </a>
+                  </Link>
                 ))}
               </div>
             )}
