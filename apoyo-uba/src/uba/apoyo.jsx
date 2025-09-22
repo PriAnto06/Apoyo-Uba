@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Grilla } from "../components/Grilla";
 
 export default function Apoyo() {
@@ -7,6 +7,8 @@ export default function Apoyo() {
   const [abiertoMaterias, setAbiertoMaterias] = useState(false);
   const [abiertoApuntes, setAbiertoApuntes] = useState(false);
   const [busqueda, setBusqueda] = useState("");
+
+  const navigate = useNavigate(); // Necesario para redirigir
 
   const datos = [
     "Matemática",
@@ -20,6 +22,22 @@ export default function Apoyo() {
     "DiseñoSoftware",
   ];
 
+  // Filtra las materias según la búsqueda
+  const datosFiltrados = datos.filter((materia) =>
+    materia.toLowerCase().includes(busqueda.toLowerCase())
+  );
+
+  // Maneja Enter
+  const manejarEnter = (e) => {
+    if (e.key === "Enter" && busqueda.trim() !== "") {
+      if (datosFiltrados.length > 0) {
+        navigate(`/materia/${datosFiltrados[0].toLowerCase()}`);
+      } else {
+        alert("No se encontró la materia");
+      }
+    }
+  };
+
   return (
     <>
       <div className="nose">
@@ -29,11 +47,13 @@ export default function Apoyo() {
           className="logo"
         />
 
+        {/* Barra de búsqueda */}
         <input
           type="text"
-          placeholder="Matemática..."
+          placeholder="Buscar materia..."
           value={busqueda}
           onChange={(e) => setBusqueda(e.target.value)}
+          onKeyDown={manejarEnter} // Captura Enter
         />
 
         <div className="botones-menu">
@@ -62,11 +82,15 @@ export default function Apoyo() {
             </button>
             {abiertoMaterias && (
               <div className="dropdown-content">
-                {datos.map((materia, i) => (
-                  <Link key={i} to={`/materia/${materia.toLowerCase()}`}>
-                    {materia}
-                  </Link>
-                ))}
+                {datosFiltrados.length > 0 ? (
+                  datosFiltrados.map((materia, i) => (
+                    <Link key={i} to={`/materia/${materia.toLowerCase()}`}>
+                      {materia}
+                    </Link>
+                  ))
+                ) : (
+                  <span>No se encontraron materias</span>
+                )}
               </div>
             )}
           </div>
@@ -81,11 +105,15 @@ export default function Apoyo() {
             </button>
             {abiertoApuntes && (
               <div className="dropdown-content">
-                {datos.map((materia, i) => (
-                  <Link key={i} to={`/apuntes/${materia.toLowerCase()}`}>
-                    {materia}
-                  </Link>
-                ))}
+                {datosFiltrados.length > 0 ? (
+                  datosFiltrados.map((materia, i) => (
+                    <Link key={i} to={`/apuntes/${materia.toLowerCase()}`}>
+                      {materia}
+                    </Link>
+                  ))
+                ) : (
+                  <span>No se encontraron apuntes</span>
+                )}
               </div>
             )}
           </div>
@@ -97,7 +125,8 @@ export default function Apoyo() {
       </h4>
       <h4>para mejorar tus habilidades de estudio.</h4>
 
-      <Grilla/> 
+      {/* Grilla con resultados filtrados */}
+      <Grilla datos={datosFiltrados} />
     </>
   );
 }
