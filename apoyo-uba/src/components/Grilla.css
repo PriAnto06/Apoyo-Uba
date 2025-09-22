@@ -1,0 +1,79 @@
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /*4 columnas*/
+    grid-template-rows: repeat(2, auto);   /* 2 filas */
+    grid-auto-rows: auto;
+    gap: 15px 8px; /* 10px entre filas, 5px entre columnas */
+    justify-content: center;
+    /*background-color: rgba(0, 0, 0, 0.3); /* capa oscura encima */
+}
+
+
+
+.card {
+    .card {
+    width: 400px; /* más ancho = imagen más grande */
+    padding: 20px;
+    border-radius: 1 0px;
+    text-align: center;
+    height: auto;
+    cursor: pointer;
+    display:flex;
+    flex-direction: column-reverse;/*el nombre se ve arriba */
+   
+}
+ object-fit: cover; /* cubre todo el espacio sin deformarse */
+    
+}
+
+.Matematicas {
+    background-color: rgb(129, 129, 6);
+    
+}
+
+.ingles{
+    background-color: black;
+    color: rgb(184, 17, 17);
+}
+
+.quimica {
+    background-color: rgb(60, 72, 165);
+}
+.AGBD{
+    background-color: rgb(129, 129, 6);
+}
+
+.AED{
+    background-color: black;
+    color: rgb(184, 17, 17);
+}
+
+.TAP {
+    background-color: rgb(60, 72, 165);
+}
+.ProgramacionWeb{
+    background-color: black;
+    color: rgb(184, 17, 17);
+}
+
+.DiseñoSoftwar{
+    background-color: rgb(60, 72, 165);
+}
+
+.card img {
+    width: 80%;
+    object-fit: cover;
+    aspect-ratio: 1 / 1;   /* 1:1 = cuadrado */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 1);/*Sombra*/
+/*border: 10px solid rgba(0, 0, 0, 0.2);*/
+
+
+
+}
+
+/* Media Query */
+@media(max-width: 768px){
+    .grid {
+        grid-template-columns: 1fr;
+    } 
+}

@@ -14,6 +14,7 @@ import AGBD from "./uba/AGBD";
 import AED from "./uba/AED";
 import TAP from "./uba/TAP";
 import DisenoSoftware from "./uba/DiseñoSoftware";
+import { Grilla } from "./components/Grilla";
 function App() {
   const [count, setCount] = useState(0);
 

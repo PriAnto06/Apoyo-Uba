@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { Grilla } from "../components/Grilla";
 
 export default function Apoyo() {
   const [abiertoPrincipal, setAbiertoPrincipal] = useState(false);
@@ -95,6 +96,8 @@ export default function Apoyo() {
         Encuentra los materiales y herramientas de la mano de otros estudiantes
       </h4>
       <h4>para mejorar tus habilidades de estudio.</h4>
+
+      <Grilla/> 
     </>
   );
 }
