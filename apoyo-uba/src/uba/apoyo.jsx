@@ -10,9 +10,8 @@ export default function Apoyo() {
   const datos = [
     "Matemática",
     "Inglés",
-    "Lengua",
     "Química",
-    "Apoyo Taller",
+    "Apoyo Materias",
     "Programación Web",
     "AGBD",
     "AED",
