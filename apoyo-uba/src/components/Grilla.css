@@ -77,3 +77,102 @@
         grid-template-columns: 1fr;
     } 
 }
+
+
+.grid {
+   display: grid;
+   grid-template-columns: repeat(3, 1fr); /*4 columnas*/
+   grid-template-rows: repeat(2, auto);   /* 2 filas */
+   grid-auto-rows: auto;
+   gap: 15px 8px; /* 10px entre filas, 5px entre columnas */
+   justify-content: center;
+   /*background-color: rgba(0, 0, 0, 0.3); /* capa oscura encima */
+}
+
+
+
+
+
+
+.grid-card {
+ display: flex;
+ flex-direction: column; /* orden normal: título arriba, imagen abajo */
+ text-align: center;     /* centra todo el contenido */
+ position: relative;
+ overflow: hidden;/*evita q se muestre el contenido q se resbolda */
+ box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+ width: 400px;
+ padding: 20px;
+ border-radius: 15px;
+ height: auto;
+ cursor: pointer;
+}
+
+
+.grid-card-title {
+ font-size: 2.5rem;    /* tamaño del título */
+ font-weight:bolder; 
+ margin-bottom: 10px; /* espacio entre título e imagen */
+ text-align: center ;  /* 🔹 centra el texto */
+ color: #126e62;        /* 🔹 aquí ponés el color que quieras */
+}
+ 
+  
+.Matematicas {
+   background-color: rgb(129, 129, 6);
+  
+}
+
+
+.ingles{
+   background-color: black;
+   color: rgb(24, 6, 6);
+}
+
+
+.quimica {
+   background-color: rgb(60, 72, 165);
+}
+.AGBD{
+   background-color: rgb(129, 129, 6);
+}
+.AED{
+   background-color: black;
+   color: rgb(184, 17, 17);
+}
+
+
+.TAP {
+   background-color: rgb(60, 72, 165);
+}
+.ProgramacionWeb{
+   background-color: black;
+   color: rgb(184, 17, 17);
+}
+
+
+.DiseñoSoftwar{
+   background-color: rgb(60, 72, 165);
+}
+
+
+.card img {
+   width: 80%;
+   object-fit: cover;
+   aspect-ratio: 1 / 1;   /* 1:1 = cuadrado */
+   border-radius: 12px;         
+   box-shadow: 0 5px 20px rgba(0, 0, 0, 1);/*Sombra*/
+/*border: 10px solid rgba(0, 0, 0, 0.2);*/
+
+
+
+
+}
+
+
+/* Media Query */
+@media(max-width: 768px){
+   .grid {
+       grid-template-columns: 1fr;
+   }
+}
