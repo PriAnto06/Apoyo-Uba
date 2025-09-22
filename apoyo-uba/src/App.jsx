@@ -12,6 +12,8 @@ import ApoyoMaterias from "./uba/Apoyo Materias";
 import ProgramacionWeb from "./uba/Programacion Web ";
 import AGBD from "./uba/AGBD";
 import AED from "./uba/AED";
+import TAP from "./uba/TAP";
+import DisenoSoftware from "./uba/DiseñoSoftware";
 function App() {
   const [count, setCount] = useState(0);
 
@@ -45,9 +47,17 @@ function App() {
        <Route path="/materia/AGBD" element={<AGBD />} />
        <Route path="/apuntes/AGBD" element={<AGBD />} />
       
-        {/* Pagina de AGBD*/}
+        {/* Pagina de AED*/}
        <Route path="/materia/AED" element={<AED />} />
        <Route path="/apuntes/AED" element={<AED />} />
+
+          {/* Pagina de TAP*/}
+       <Route path="/materia/TAP" element={<TAP />} />
+       <Route path="/apuntes/TAP" element={<TAP />} />
+
+        {/* Pagina de DiseñoSoftware */}
+       <Route path="/materia/DiseñoSoftware" element={< DisenoSoftware/>} />
+       <Route path="/apuntes/DiseñoSoftware" element={<DisenoSoftware />} />
       </Routes>
     </Router>
     </>

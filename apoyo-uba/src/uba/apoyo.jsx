@@ -16,7 +16,7 @@ export default function Apoyo() {
     "AGBD",
     "AED",
     "TAP",
-    "Diseño de Software",
+    "DiseñoSoftware",
   ];
 
   return (
