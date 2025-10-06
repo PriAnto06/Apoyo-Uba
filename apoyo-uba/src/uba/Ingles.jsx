@@ -7,6 +7,9 @@ import apunte2 from "../markdown/Ingles/REVISION EXERCISES/YEAR 3/GOING TO AND W
 import apunte4 from "../markdown/Ingles/REVISION EXERCISES/YEAR 3/GOING TO AND WILL FUTURE SIMPLE/apunte4.md?raw";
 import apunte5 from "../markdown/Ingles/REVISION EXERCISES/YEAR 3/GOING TO AND WILL FUTURE SIMPLE/apunte5.md?raw";
 
+// NUEVO: Apunte de PRESENT SIMPLE
+import apuntePresentSimple from "../markdown/Ingles/REVISION EXERCISES/YEAR 3/PRESENT SIMPLE/apunte1.md?raw";
+
 export default function Ingles() {
   const [contenido, setContenido] = useState("");
 
@@ -15,6 +18,8 @@ export default function Ingles() {
     { nombre: "Apunte 2", contenido: apunte2 },
     { nombre: "Apunte 4", contenido: apunte4 },
     { nombre: "Apunte 5", contenido: apunte5 },
+    // NUEVO: botón para Present Simple
+    { nombre: "Present Simple", contenido: apuntePresentSimple },
   ];
 
   return (

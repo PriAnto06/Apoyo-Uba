@@ -96,12 +96,13 @@ export default function Apoyo() {
           </div>
 
           {/* Botón Apuntes */}
+          {/*
           <div className="dropdown">
             <button
               onClick={() => setAbiertoApuntes(!abiertoApuntes)}
               className="dropbtn"
             >
-              Apuntes ▼
+             Apuntes ▼
             </button>
             {abiertoApuntes && (
               <div className="dropdown-content">
@@ -116,7 +117,7 @@ export default function Apoyo() {
                 )}
               </div>
             )}
-          </div>
+          </div>*/ }
         </div>
       </div>
 
