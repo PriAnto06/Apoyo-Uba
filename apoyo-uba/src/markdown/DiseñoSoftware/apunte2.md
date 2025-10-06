@@ -1,9 +1,5 @@
 # PDF Content
 
-tinyurl.com/etec-5-ds
-
-github.com
-
 
 ¿Qué es un Sistema de Control de Versiones?
 

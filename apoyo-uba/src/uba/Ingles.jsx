@@ -22,6 +22,7 @@ export default function Ingles() {
     { nombre: "Present Simple", contenido: apuntePresentSimple },
   ];
 
+
   return (
     <div style={{ padding: "20px" }}>
       {/* Tu bienvenida original */}

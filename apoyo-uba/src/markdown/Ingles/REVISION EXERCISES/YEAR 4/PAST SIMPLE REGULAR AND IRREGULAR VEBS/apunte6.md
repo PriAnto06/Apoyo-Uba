@@ -1,15 +1,4 @@
-Past simple
-* {font-family: Arial; font-size: 11pt;}
-a.NoteRef {text-decoration: none;}
-hr {height: 1px; padding: 0; margin: 1em 0; border: 0; border-top: 1px solid #CCC;}
-table {border: 1px solid black; border-spacing: 0px; width : 100%;}
-td {border: 1px solid black;}
-.Normal {text-align: left; margin-top: 0pt; margin-bottom: 0pt;}
-.Body Text {font-family: 'Microsoft Sans Serif'; font-size: 15pt;}
-h1 {font-family: 'Tahoma'; font-size: 15pt; font-weight: bold;}
-.Title {font-family: 'Consolas'; font-size: 31pt; font-weight: bold;}
-.List Paragraph {font-family: 'Tahoma';}
-.Table Paragraph {}
+
 P A S T S I M P L EI played football yesterday.
 
 I didn't play football yesterday.
