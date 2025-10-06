@@ -3,7 +3,7 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
 import Apoyo from "./uba/apoyo";
-import { BrowserRouter as Router, Routes, Route, BrowserRouter } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"; // 👈 sin BrowserRouter repetido
 import Matematica from "./uba/Matematica";
 import QuienesSomos from "./uba/QuienesSomos";
 import Ingles from "./uba/Ingles";
@@ -15,52 +15,60 @@ import AED from "./uba/AED";
 import TAP from "./uba/TAP";
 import DisenoSoftware from "./uba/DiseñoSoftware";
 import { Grilla } from "./components/Grilla";
+import ApunteView from "./Pagina/ApuntesView";
+
+
 function App() {
   const [count, setCount] = useState(0);
 
   return (
     <>
       <Router>
-      <Routes>
-        {/* Página principal */}
-        <Route path="/" element={<Apoyo />} />
-        <Route path="/quienes-somos" element={<QuienesSomos />} />
-        {/* Página de Matemática */}
-        <Route path="/materia/matemática" element={<Matematica />} />
-        <Route path="/apuntes/matemática" element={<Matematica />} />
-        {/* Pagina de ingles*/}
-       <Route path="/materia/inglés" element={<Ingles />} />
-       <Route path="/apuntes/inglés" element={<Ingles />} />
+        <Routes>
+          {/* Página principal */}
+          <Route path="/" element={<Apoyo />} />
+          <Route path="/quienes-somos" element={<QuienesSomos />} />
 
-        {/* Pagina de quimica*/}
-       <Route path="/materia/química" element={<Quimica />} />
-       <Route path="/apuntes/química" element={<Quimica />} />
+          {/* Página de Matemática */}
+          <Route path="/materia/matemática" element={<Matematica />} />
+          <Route path="/apuntes/matemática" element={<Matematica />} />
 
-        {/* Pagina de apoyo materia*/}
-       <Route path="/materia/Apoyo Materias" element={<ApoyoMaterias />} />
-       <Route path="/apuntes/Apoyo Materias" element={<ApoyoMaterias />} />
+          {/* Página de Inglés */}
+          <Route path="/materia/inglés" element={<Ingles />} />
+          <Route path="/apuntes/inglés" element={<Ingles />} />
 
-         {/* Pagina de programacion web*/}
-       <Route path="/materia/Programación Web" element={<ProgramacionWeb />} />
-       <Route path="/apuntes/Programación Web" element={<ProgramacionWeb />} />
+          {/* Página de Química */}
+          <Route path="/materia/química" element={<Quimica />} />
+          <Route path="/apuntes/química" element={<Quimica />} />
 
-       {/* Pagina de AGBD*/}
-       <Route path="/materia/AGBD" element={<AGBD />} />
-       <Route path="/apuntes/AGBD" element={<AGBD />} />
-      
-        {/* Pagina de AED*/}
-       <Route path="/materia/AED" element={<AED />} />
-       <Route path="/apuntes/AED" element={<AED />} />
+          {/* Página de Apoyo Materias */}
+          <Route path="/materia/Apoyo Materias" element={<ApoyoMaterias />} />
+          <Route path="/apuntes/Apoyo Materias" element={<ApoyoMaterias />} />
 
-          {/* Pagina de TAP*/}
-       <Route path="/materia/TAP" element={<TAP />} />
-       <Route path="/apuntes/TAP" element={<TAP />} />
+          {/* Página de Programación Web */}
+          <Route path="/materia/Programación Web" element={<ProgramacionWeb />} />
+          <Route path="/apuntes/Programación Web" element={<ProgramacionWeb />} />
 
-        {/* Pagina de DiseñoSoftware */}
-       <Route path="/materia/DiseñoSoftware" element={< DisenoSoftware/>} />
-       <Route path="/apuntes/DiseñoSoftware" element={<DisenoSoftware />} />
-      </Routes>
-    </Router>
+          {/* Página de AGBD */}
+          <Route path="/materia/AGBD" element={<AGBD />} />
+          <Route path="/apuntes/AGBD" element={<AGBD />} />
+
+          {/* Página de AED */}
+          <Route path="/materia/AED" element={<AED />} />
+          <Route path="/apuntes/AED" element={<AED />} />
+
+          {/* Página de TAP */}
+          <Route path="/materia/TAP" element={<TAP />} />
+          <Route path="/apuntes/TAP" element={<TAP />} />
+
+          {/* Página de Diseño de Software */}
+          <Route path="/materia/DiseñoSoftware" element={<DisenoSoftware />} />
+          <Route path="/apuntes/DiseñoSoftware" element={<DisenoSoftware />} />
+
+          {/* ✅ Nueva ruta dinámica para apuntes en Markdown */}
+          <Route path="/apuntes/:materia" element={<ApunteView />} />
+        </Routes>
+      </Router>
     </>
   );
 }

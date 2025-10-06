@@ -4,16 +4,15 @@ import ReactMarkdown from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 
 export default function ApunteView() {
-  const { materia } = useParams(); // Ej: "programacionweb"
+  const { materia } = useParams();
   const [contenido, setContenido] = useState("");
 
   useEffect(() => {
-    // Ruta dinámica: busca el .md en /src/markdowns
-    import(`../markdowns/${materia}.md`)
+     import(`../markdowns/${materia}.md`)
       .then((res) => fetch(res.default))
       .then((res) => res.text())
       .then((text) => setContenido(text))
-      .catch(() => setContenido("# Apunte no encontrado 😢"));
+      .catch(() => setContenido("#  Apunte no encontrado"));
   }, [materia]);
 
   return (
