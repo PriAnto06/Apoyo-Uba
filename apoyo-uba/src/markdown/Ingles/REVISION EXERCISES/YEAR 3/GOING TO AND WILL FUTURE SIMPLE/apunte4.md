@@ -1,15 +1,3 @@
-PHPWord
-* {font-family: Arial; font-size: 11pt;}
-a.NoteRef {text-decoration: none;}
-hr {height: 1px; padding: 0; margin: 1em 0; border: 0; border-top: 1px solid #CCC;}
-table {border: 1px solid black; border-spacing: 0px; width : 100%;}
-td {border: 1px solid black;}
-.Normal {margin-bottom: 10pt;}
-h1 {font-size: 20pt;}
-.Balloon Text {font-family: 'Tahoma'; font-size: 8pt;}
-.Balloon Text Char {font-family: 'Tahoma'; font-size: 8pt;}
-.Heading 1 Char {font-size: 20pt;}
-I. Complete the correct form of the to be
 
 1\. I \_\_\_\_\_\_\_\_\_\_\_ going to do my homework.
 
