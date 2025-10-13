@@ -1,7 +1,6 @@
 # tests/conftest.py
 import pytest
-from app.main import create_app  # IMPORTANTE: solo desde main.py
-
+from app import create_app  # en vez de from app.main
 @pytest.fixture
 def client():
     app = create_app()
