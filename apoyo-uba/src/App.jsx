@@ -9,13 +9,13 @@ import QuienesSomos from "./uba/QuienesSomos";
 import Ingles from "./uba/Ingles";
 import Quimica from "./uba/Quimica";
 import ApoyoMaterias from "./uba/Apoyo Materias";
-import ProgramacionWeb from "./uba/Programacion Web ";
 import AGBD from "./uba/AGBD";
 import AED from "./uba/AED";
 import TAP from "./uba/TAP";
 import DisenoSoftware from "./uba/DiseñoSoftware";
 import { Grilla } from "./components/Grilla";
 import ApunteView from "./Pagina/ApuntesView";
+import ProgramacionWeb from "./uba/ProgramacionWeb ";
 
 
 function App() {
