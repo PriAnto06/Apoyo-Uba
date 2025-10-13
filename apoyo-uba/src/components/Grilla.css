@@ -100,7 +100,7 @@
  text-align: center;     /* centra todo el contenido */
  position: relative;
  overflow: hidden;/*evita q se muestre el contenido q se resbolda */
- box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+ box-shadow: 0 4px 10px rgba(0, 0, 0, 1);
  width: 400px;
  padding: 20px;
  border-radius: 15px;

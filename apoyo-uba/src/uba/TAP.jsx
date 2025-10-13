@@ -29,7 +29,7 @@ export default function TAP() {
             onClick={() => setContenido(a.contenido)}
             style={{
               padding: "8px 16px",
-              backgroundColor: "#28a745",
+              backgroundColor: "rgba(59, 151, 151, 1)",
               color: "white",
               border: "none",
               borderRadius: "8px",

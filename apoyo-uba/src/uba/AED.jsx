@@ -34,7 +34,7 @@ export default function Matematica() {
             onClick={() => setContenido(a.contenido)}
             style={{
               padding: "8px 16px",
-              backgroundColor: "#007bff",
+              backgroundColor: "rgba(51, 151, 151, 1)",
               color: "white",
               border: "none",
               borderRadius: "8px",

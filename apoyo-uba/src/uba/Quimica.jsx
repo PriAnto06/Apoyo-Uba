@@ -31,7 +31,7 @@ export default function Quimica() {
             onClick={() => setContenido(a.contenido)}
             style={{
               padding: "8px 16px",
-              backgroundColor: "#007bff",
+              backgroundColor: "rgba(59, 151, 151, 1)",
               color: "white",
               border: "none",
               borderRadius: "8px",
