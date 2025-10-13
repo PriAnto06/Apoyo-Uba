@@ -1,9 +1,8 @@
 # tests/conftest.py
 import pytest
-from app import create_app  # en vez de from app.main
+from app import app as flask_app  # en vez de from app.main
 @pytest.fixture
 def client():
-    app = create_app()
-    app.config["TESTING"] = True
-    with app.test_client() as client:
+    flask_app.config.update(TESTING=True)
+    with flask_app.test_client() as client:
         yield client
