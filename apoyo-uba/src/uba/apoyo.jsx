@@ -39,7 +39,7 @@ export default function Apoyo() {
 	materia.toLowerCase().includes(busqueda.toLowerCase())
   );
 
-  // Maneja Enter
+  // Maneja Enter para búsqueda tolerante
   const manejarEnter = (e) => {
 	if (e.key === "Enter" && busqueda.trim() !== "") {
   	if (datosFiltrados.length > 0) {
