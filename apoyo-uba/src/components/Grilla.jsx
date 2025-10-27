@@ -58,7 +58,7 @@ export function Grilla({ datos }) {
           onClick={() => handleClick(card.name)}
           style={{ cursor: "pointer" }}
         >
-          <h2 className="card-title">{card.name}</h2>
+          <h2 className="grid-card-title">{card.name}</h2>
           <img src={card.img} alt={card.name} />
         </div>
       ))}

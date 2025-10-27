@@ -109,12 +109,11 @@
 }
 
 
-.grid-card-title {
- font-size: 2.5rem;    /* tamaño del título */
+.grid-card-title {   /* tamaño del título */
  font-weight:bolder; 
- margin-bottom: 10px; /* espacio entre título e imagen */
  text-align: center ;  /* 🔹 centra el texto */
  color: #126e62;        /* 🔹 aquí ponés el color que quieras */
+ height: 80px;
 }
  
   
