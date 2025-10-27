@@ -1,163 +1,417 @@
-/* Global Styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* ======================================================= */
+/* 1. VARIABLES DE COLOR Y RESET BÁSICO */
+/* ======================================================= */
+:root {
+    /* Colores del diseño de la grilla estética */
+    --color-bg-page: #d4e2e6;     
+    --color-bg-content: #f4f8fb;  
+    --color-header-dark: #3c4f5a; 
+    --color-nav-link: #5c6c75;    
+    --color-nav-active: #4a5d6a;  
+    --color-button-contact: #1a73e8; 
+    --color-text-dark: #3c4f5a;   
+    --color-hover-blue: #0f62fe; /* Azul más oscuro para hover en Home */
+
+    /* Colores para las tarjetas de la grilla estética */
+    --color-card-blue-soft: #8cadda; 
+    --color-card-green-light: #a7d0d6; 
+    --color-card-teal-dark: #79a8a7; 
+    --color-card-orange-soft: #e5b98a; 
+    --color-card-yellow-dark: #dfbd66; 
+    --color-card-purple-soft: #b0a6d0; 
+    --color-card-purple-light: #c7a7d6; 
 }
 
 body {
-  font-family: 'Arial', sans-serif;
-  line-height: 1.6;
-  background-color: #fff;
-  color: #333;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff; 
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
+/* ------------------------------------------------------- */
+/* CONTENEDORES PRINCIPALES (Para alternar estilos de fondo) */
+/* ------------------------------------------------------- */
+
+/* Contenedor principal de la Home Page */
+.apoyo-container {
+    background-color: #f0f2f5; /* Fondo ligeramente gris para HomePage */
+    min-height: 100vh;
 }
 
-/* Navbar */
+/* Contenedor principal de la Grilla Estética */
+.root-grid {
+    background-color: var(--color-bg-page);
+    padding: 20px; 
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+/* Contenedor que simula la tarjeta principal en la vista GRID */
+.root-grid > * {
+    background-color: var(--color-bg-content);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 1200px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* ======================================================= */
+/* ESTILOS DE NAVEGACIÓN (COMMON/ADAPTIVE) */
+/* ======================================================= */
+
+/* -------------------- Navbar (HOME PAGE) -------------------- */
 .navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 40px;
-  background-color: #f9f9f9;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15%; 
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.navbar .logo img {
-  width: 150px;
+.navbar-logo a {
+    text-decoration: none;
+    color: var(--color-button-contact); 
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
 }
 
-.nav-links ul {
-  list-style: none;
-  display: flex;
-  gap: 20px;
+.navbar-links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
 }
 
-.nav-links a {
-  font-size: 16px;
-  color: #333;
-  font-weight: bold;
+.search-box {
+    display: flex;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    overflow: hidden;
 }
 
-.social-media a {
-  margin-left: 20px;
-  font-size: 16px;
-  color: #333;
+.search-input {
+    padding: 8px 10px;
+    border: none;
+    outline: none;
+    width: 150px; 
 }
 
-/* Hero Section */
-.hero {
-  background: url('https://via.placeholder.com/1920x800') no-repeat center center/cover;
-  color: white;
-  text-align: center;
-  padding: 100px 20px;
+.search-button {
+    background-color: var(--color-button-contact);
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
 }
 
-.hero h1 {
-  font-size: 40px;
-  margin-bottom: 10px;
+/* -------------------- Nav (GRID PAGE) -------------------- */
+.header-top {
+    background-color: var(--color-header-dark);
+    color: white;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: flex-end; /* Alinea los elementos a la derecha */
+    align-items: center;
 }
 
-.hero p {
-  font-size: 18px;
-  margin-bottom: 20px;
+.logo-container { /* Usado para el logo en el main-nav de la grilla */
+    display: flex;
+    align-items: center;
+    margin-right: auto; /* Empuja el resto de elementos a la derecha */
 }
 
-.cta-button {
-  background-color: #ff5c5c;
-  color: white;
-  padding: 10px 30px;
-  border-radius: 5px;
-  font-size: 16px;
-  transition: background-color 0.3s;
+.logo-text { font-size: 1.5em; font-weight: 600; margin-right: 15px; }
+.logo-slogan { font-size: 0.85em; opacity: 0.8; }
+
+.user-actions { display: flex; gap: 10px; align-items: center; }
+.username { font-size: 0.9em; opacity: 0.8; }
+.btn-login {
+    background-color: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
 }
 
-.cta-button:hover {
-  background-color: #ff2a2a;
+.main-nav {
+    padding: 10px 30px;
+    background-color: white;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    gap: 20px;
+    align-items: center;
 }
 
-/* Services Section */
-.services {
-  text-align: center;
-  padding: 60px 20px;
+.nav-content-grid { /* Contenedor de links dentro de main-nav */
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    width: 100%;
 }
 
-.services h2 {
-  font-size: 30px;
-  margin-bottom: 20px;
+.nav-item {
+    color: var(--color-nav-link);
+    text-decoration: none;
+    padding: 8px 10px;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: color 0.2s, background-color 0.2s;
+}
+.nav-item:hover {
+    color: var(--color-hover-blue);
 }
 
-.services p {
-  font-size: 18px;
-  margin-bottom: 40px;
+.nav-item.active {
+    color: var(--color-header-dark);
+    border-bottom: 2px solid var(--color-header-dark);
+    padding-bottom: 6px;
+    font-weight: 600;
 }
 
-.service-cards {
-  display: flex;
-  justify-content: space-around;
-  gap: 20px;
+.search-bar-container {
+    display: flex;
+    margin-left: auto; /* Empuja el search al centro/derecha */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    overflow: hidden;
 }
 
-.card {
-  width: 250px;
-  background-color: #f0f0f0;
-  padding: 20px;
-  border-radius: 8px;
-  text-align: center;
+.search-input-grid {
+    padding: 8px 10px;
+    border: none;
+    outline: none;
+    width: 180px;
+}
+.btn-search-grid {
+    background-color: var(--color-button-contact);
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+}
+.botones-menu {
+    display: flex;
+}
+.btn-contact {
+    background-color: var(--color-button-contact);
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
-.card img {
-  width: 100%;
-  height: auto;
-  margin-bottom: 20px;
+
+/* ======================================================= */
+/* ESTILOS DE LA HOME PAGE (Banner/Cursos) */
+/* ======================================================= */
+
+.hero-banner {
+    /* Sustituir URL_DE_LA_IMAGEN_DE_ESTUDIANTES_AQUÍ con tu imagen */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('URL_DE_LA_IMAGEN_DE_ESTUDIANTES_AQUÍ');
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    padding: 0 15%;
+    color: white;
+    margin-bottom: 40px;
 }
 
-/* Featured Products Section */
-.featured-products {
-  text-align: center;
-  padding: 60px 20px;
-  background-color: #f9f9f9;
+.hero-title { font-size: 2.5rem; margin-bottom: 10px; line-height: 1.2; }
+.hero-subtitle { font-size: 1.2rem; margin-bottom: 20px; }
+.hero-button {
+    padding: 10px 20px;
+    background-color: white;
+    color: var(--color-button-contact);
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
 }
 
-.featured-products h2 {
-  font-size: 30px;
-  margin-bottom: 40px;
+/* Sección Cursos (Cards con íconos de emojis) */
+.seccion-cursos { padding: 20px 15%; }
+.cursos-grilla {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 20px;
+    margin-top: 20px;
+}
+.curso-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.curso-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    color: white;
+    margin-bottom: 15px;
+}
+.curso-descripcion { font-size: 0.85rem; color: #707070; margin-bottom: 15px; }
+.curso-footer {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 0.8rem;
+    color: #a0a0a0;
 }
 
-.products {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+/* Footer de la Home Page */
+.seccion-recursos {
+    padding: 40px 15%;
+    background-color: white;
+    border-top: 1px solid #ddd;
+    margin-top: 40px;
+}
+.recursos-links {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    font-size: 0.9rem;
+}
+.recursos-links a { color: #707070; text-decoration: none; }
+.recursos-links a.link-derecha { color: var(--color-button-contact); }
+
+
+/* ======================================================= */
+/* ESTILOS DE LA GRILLA ESTÉTICA (Materias Grid) */
+/* ======================================================= */
+
+.main-content-grid {
+    padding: 30px;
+    background-color: var(--color-bg-content); 
+    flex-grow: 1; /* Ocupa el espacio restante */
 }
 
-.product-card {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  text-align: center;
+.descripcion-corta {
+    margin-bottom: 30px;
+    padding: 10px 0;
+    color: var(--color-text-dark);
 }
 
-.product-card img {
-  width: 100%;
-  height: auto;
-  margin-bottom: 20px;
-
+.materia-grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
 }
 
-.product-card h4 {
-  font-size: 18px;
-  color: #333;
+.materia-card {
+    border-radius: 12px;
+    padding: 20px;
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    color: white; 
 }
 
-/* Footer */
-.footer {
-  background-color: #333;
-  color: white;
-  text-align: center;
-  padding: 20px;
+.card-header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
+
+.card-icon {
+    font-size: 2.5em;
+    margin-bottom: 5px;
+}
+
+.materia-card h3 {
+    margin: 0;
+    font-size: 1.4em;
+    font-weight: 500;
+}
+
+.card-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 15px;
+}
+
+.btn-resource {
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.8em;
+    transition: background-color 0.2s;
+}
+
+.btn-resource a {
+    color: inherit;
+    text-decoration: none;
+}
+.btn-resource:hover { background-color: rgba(255, 255, 255, 0.4); }
+
+/* Estilos de Color Específicos para las Tarjetas Estéticas */
+.materia-card.blue-soft { background-color: var(--color-card-blue-soft); }
+.materia-card.green-light { background-color: var(--color-card-green-light); }
+.materia-card.teal-dark { background-color: var(--color-card-teal-dark); }
+.materia-card.orange-soft { background-color: var(--color-card-orange-soft); }
+.materia-card.yellow-dark { background-color: var(--color-card-yellow-dark); }
+.materia-card.purple-soft { background-color: var(--color-card-purple-soft); }
+.materia-card.purple-light { background-color: var(--color-card-purple-light); }
+
+
+/* Footer de la Grilla Estética */
+.main-footer-grid {
+    background-color: var(--color-header-dark);
+    color: white;
+    padding: 20px 30px;
+    border-radius: 0 0 15px 15px; 
+    margin-top: auto; /* Se pega al final del contenedor flex */
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.featured-resources h4 { margin-top: 0; font-weight: 500; }
+.resource-previews { display: flex; gap: 10px; }
+.preview-item {
+    width: 60px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+}
+
+.footer-links p { margin: 5px 0; font-size: 0.9em; opacity: 0.8; }
+.copyright {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 20px;
+    padding-top: 10px;
+    font-size: 0.8em;
+    opacity: 0.7;
+}
+.social-icons span { margin-left: 10px; cursor: pointer; }

@@ -16,6 +16,7 @@ import DisenoSoftware from "./uba/DiseñoSoftware";
 import { Grilla } from "./components/Grilla";
 import ApunteView from "./Pagina/ApuntesView";
 import ProgramacionWeb from "./uba/ProgramacionWeb ";
+import ApoyoGrid from "./ApoyoGrid";
 
 
 function App() {
@@ -67,8 +68,10 @@ function App() {
 
           {/* ✅ Nueva ruta dinámica para apuntes en Markdown */}
           <Route path="/apuntes/:materia" element={<ApunteView />} />
+         <Route path="/uba/grid" element={<ApoyoGrid/>} />
         </Routes>
       </Router>
+
     </>
   );
 }
