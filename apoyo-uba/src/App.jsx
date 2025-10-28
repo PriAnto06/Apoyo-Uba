@@ -43,12 +43,12 @@ function App() {
           <Route path="/apuntes/química" element={<Quimica />} />
 
           {/* Página de Apoyo Materias */}
-          <Route path="/materia/Apoyo Materias" element={<ApoyoMaterias />} />
-          <Route path="/apuntes/Apoyo Materias" element={<ApoyoMaterias />} />
+          <Route path="/materia/ApoyoMaterias" element={<ApoyoMaterias />} />
+          <Route path="/apuntes/ApoyoMaterias" element={<ApoyoMaterias />} />
 
           {/* Página de Programación Web */}
-          <Route path="/materia/Programación Web" element={<ProgramacionWeb />} />
-          <Route path="/apuntes/Programación Web" element={<ProgramacionWeb />} />
+          <Route path="/materia/programacionweb" element={<ProgramacionWeb />} />
+          <Route path="/apuntes/programacionweb" element={<ProgramacionWeb />} />
 
           {/* Página de AGBD */}
           <Route path="/materia/AGBD" element={<AGBD />} />

@@ -16,14 +16,14 @@ const cardsData = [
     { title: "Química", color: "teal-dark", imageSrc: "./img/chemistry_icon.png", resources: ["Guías PDF", "Video Lecciones", "Laboratorio"] },
     
     // Usamos el color de la imagen original
-    { title: "AED", color: "orange-soft", imageSrc: "./img/aed_icon.png", resources: ["Teoría", "Clases Prácticas"] },
+    { title: "AED", color: "orange-soft", imageSrc: "./img/aed_icon.png", resources: ["Profesor: Mauricio uribe y Julian impelluso", "Clases Prácticas"] },
     { title: "TAP", color: "yellow-dark", imageSrc: "./img/tap_icon.png", resources: ["Proyectos", "Recursos", "Exámenes"] },
     { title: "AGBD", color: "purple-soft", imageSrc: "./img/agbd_icon.png", resources: ["Diseño", "SQL", "Ejercicios"] },
     
     // Nuevos colores para las filas inferiores
-    { title: "Programación-Web", color: "red-soft", imageSrc: "./img/webdev_icon.png", resources: ["HTML/CSS", "JavaScript", "Frameworks"] },
-    { title: "Diseño de Software", color: "cyan-soft", imageSrc: "./img/design_icon.png", resources: ["UML", "Patrones", "Ejercicios"] },
-    { title: "Apoyo Materias", color: "gray-medium", imageSrc: "./img/apoyo_icon.png", resources: ["Clases Particulares", "Foro de Dudas"] },
+    { title: "ProgramacionWeb", color: "blue-soft", imageSrc: "./img/webdev_icon.png", resources: ["HTML/CSS", "JavaScript", "Frameworks"] },
+    { title: "DiseñoSoftware", color: "green-light", imageSrc: "./img/design_icon.png", resources: ["UML", "Patrones", "Ejercicios"] },
+    { title: "ApoyoMaterias", color: "teal-dark", imageSrc: "./img/apoyo_icon.png", resources: ["Clases Particulares", "Foro de Dudas"] },
 ];
 
 export default function MateriasGridPage() { // Renombrado
@@ -35,7 +35,7 @@ export default function MateriasGridPage() { // Renombrado
 
     const datos = [
         "Matemática", "Inglés", "Química", "AED", "TAP", "AGBD",
-        "Programación-Web", "Diseño de Software", "Apoyo Materias",
+        "ProgramaciónWeb", "DiseñoSoftware", "Apoyo Materias",
     ];
 
     const datosFiltrados = datos.filter((materia) =>
@@ -54,6 +54,22 @@ export default function MateriasGridPage() { // Renombrado
 
     const handleMateriaClick = (materia) => {
         navigate(`/materia/${materia.toLowerCase().replace(/\s+/g, '-')}`);
+    };
+
+    // ==============================================
+    // FUNCIÓN PARA MOSTRAR CONTACTOS
+    // ==============================================
+    const mostrarContacto = () => {
+        const mensaje = 
+            "Cualquier duda, consulta o inquietud, contáctanos por acá:\n\n" +
+            "Nombre: Priscila Della Torre\n" + 
+            "Email: priscilaantonella.d.07@gmail.com\n\n" +
+            "Nombre: Sol Perez\n" + 
+            "Email: axelweath@gmail.com\n\n" +
+            "Nombre: Briseida Camacho\n" + 
+            "Email: evabri2008cue@gmail.com";
+            
+        alert(mensaje);
     };
 
     return (
@@ -133,8 +149,8 @@ export default function MateriasGridPage() { // Renombrado
                         )}
                     </div>
 
-                    {/* El botón de contacto */}
-                    <button className="nav-item btn-contact">Contacto</button>
+                    {/* El botón de contacto, ahora con la función mostrarContacto */}
+                    <button className="nav-item btn-contact" onClick={mostrarContacto}>Contacto</button>
                 </div>
             </nav>
 
@@ -205,3 +221,4 @@ export default function MateriasGridPage() { // Renombrado
         </>
     );
 }
+//pip install flask flask-cors python-dotenv mysql-connector-python
