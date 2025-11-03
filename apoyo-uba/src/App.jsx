@@ -16,7 +16,7 @@ import DisenoSoftware from "./uba/DiseñoSoftware";
 import { Grilla } from "./components/Grilla";
 import ApunteView from "./Pagina/ApuntesView";
 import ProgramacionWeb from "./uba/ProgramacionWeb ";
-import ApoyoGrid from "./ApoyoGrid";
+import ApoyoGrid from "./uba/ApoyoGrid";
 
 
 function App() {
