@@ -1,12 +1,13 @@
-// src/uba/AuthPage.jsx (CÓDIGO COMPLETO CON IMPORTACIÓN CORREGIDA)
+// src/uba/AuthPage.jsx (CÓDIGO MODIFICADO PARA INCLUIR GOOGLE SIGN-IN)
 
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-// 🔑 IMPORTAR EL HOOK DEL CONTEXTO
-// RUTA CORREGIDA: Apunta a la misma carpeta (src/uba/)
 import { useAuth } from './AuthContext'; 
+// 🔑 NUEVA IMPORTACIÓN DE GOOGLE
+import { GoogleLogin } from '@react-oauth/google';
 
 const LOGO_URL = "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Flookaside.fbsbx.com%2Flookaside%2Fcrawler%2Fmedia%2F%3Fmedia_id%3D100057332235578&f=1&nofb=1&ipt=100d83cc5464540b235c3849b62f5d44ac3145b6100c37cd6a289bf493fd8e22"; 
+const API_URL = "http://localhost:5000"; 
 
 export default function AuthPage() {
     const [isLogin, setIsLogin] = useState(true);
@@ -15,47 +16,72 @@ export default function AuthPage() {
     const [error, setError] = useState('');
     const navigate = useNavigate();
     
-    // 🔑 Usar el hook de autenticación
     const { login } = useAuth();
 
     // ----------------------------------------------------
-    // FUNCIÓN DE LOGIN
+    // FUNCIÓN DE LOGIN MANUAL (Modificada para usar Flask)
     // ----------------------------------------------------
-    const handleLogin = (e) => {
+    const handleLoginManual = async (e) => {
         e.preventDefault();
         setError('');
 
-        // Obtener credenciales guardadas
-        const registeredEmail = localStorage.getItem('registeredEmail');
-        const registeredPassword = localStorage.getItem('registeredPassword');
-        const registeredName = localStorage.getItem('registeredName');
+        try {
+            const res = await fetch(`${API_URL}/login`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email, password }),
+            });
 
-        // Validación
-        if (email === registeredEmail && password === registeredPassword) {
-            
-            // Llamar a la función de login del contexto
-            login({ name: registeredName, email: registeredEmail });
-            
-            // Redirigir a la página principal
+            const data = await res.json();
+
+            if (!res.ok) {
+                throw new Error(data.msg || "Fallo en el login manual.");
+            }
+
+            // Usar la función de login real
+            login(data.access_token, data.user); 
             navigate('/');
-        } else {
-            setError('Credenciales inválidas o usuario no registrado.');
+        } catch (err) {
+            setError(err.message || 'Credenciales inválidas.');
         }
     };
-
+    
     // ----------------------------------------------------
-    // FUNCIÓN DE REGISTRO
+    // FUNCIÓN DE LOGIN CON GOOGLE (NUEVA)
     // ----------------------------------------------------
-    const handleRegister = (e) => {
-        e.preventDefault();
-        setError('');
+    const handleGoogleSuccess = async (response) => {
+        const idToken = response.credential;
         
-        // Simulación: Redirigir a la página de registro real
-        navigate('/registro');
+        try {
+            // 1. Enviar el token a Flask para verificación
+            const res = await fetch(`${API_URL}/google_login`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ token: idToken }),
+            });
+
+            const data = await res.json();
+
+            if (!res.ok) {
+                throw new Error(data.msg || data.error || "Fallo la autenticación con Google.");
+            }
+
+            // 2. Loguear al usuario y redirigir
+            login(data.access_token, data.user);
+            navigate('/'); 
+
+        } catch (err) {
+            console.error("Error al autenticar con Flask:", err);
+            setError(`Error de sesión con Google: ${err.message}.`);
+        }
+    };
+    
+    const handleGoogleFailure = () => {
+        setError("Fallo al iniciar sesión con Google. Intenta de nuevo.");
     };
 
     // ----------------------------------------------------
-    // ESTILOS DE COMPONENTE
+    // ESTILOS DE COMPONENTE (Los mantuvimos)
     // ----------------------------------------------------
     const containerStyle = {
         minHeight: '100vh',
@@ -132,9 +158,9 @@ export default function AuthPage() {
                 
                 <h2>{isLogin ? 'Iniciar Sesión' : 'Registrarse'}</h2>
                 
-                <form onSubmit={isLogin ? handleLogin : handleRegister}>
+                <form onSubmit={isLogin ? handleLoginManual : handleRegister}>
                     
-                    {/* Campo de Email */}
+                    {/* Campos de Email y Contraseña */}
                     <input
                         type="email"
                         placeholder="Correo electrónico"
@@ -143,8 +169,6 @@ export default function AuthPage() {
                         required
                         style={inputStyle}
                     />
-
-                    {/* Campo de Contraseña */}
                     <input
                         type="password"
                         placeholder="Contraseña"
@@ -161,6 +185,21 @@ export default function AuthPage() {
                     </button>
                     
                 </form>
+
+                {/* 🔑 SEPARADOR Y BOTÓN DE GOOGLE (Solo en la vista de Login) */}
+                {isLogin && (
+                    <>
+                        <p style={{ margin: '30px 0', borderTop: '1px solid #eee', paddingTop: '20px' }}>
+                            O usa tu cuenta de Google
+                        </p>
+                        <GoogleLogin
+                            onSuccess={handleGoogleSuccess}
+                            onError={handleGoogleFailure}
+                            theme="filled_blue" 
+                        />
+                    </>
+                )}
+                
 
                 <button 
                     onClick={() => setIsLogin(!isLogin)} 
