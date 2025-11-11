@@ -47,6 +47,7 @@
             try {
                 const res = await fetch("http://localhost:5000/agbd", {
                     method: "POST",
+                    credentials: "include",    // ← LO FUNDAMENTAL
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({ Profesor: profesor, Apuntes: apunte })
                 });

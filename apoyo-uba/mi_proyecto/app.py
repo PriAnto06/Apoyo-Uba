@@ -15,7 +15,12 @@ from google.auth.transport import requests as google_requests
 
 app = Flask(__name__)
 # 🔑 CORS debe permitir credenciales para sesiones JWT
-CORS(app, origins=["http://localhost:5173"], supports_credentials=True) 
+#CORS(app, origins=["http://localhost:5173"], supports_credentials=True) 
+
+CORS(app,supports_credentials=True, resources={r"/*": {"origins": [
+    "http://localhost:5173",
+    "http://127.0.0.1:5000","http://127.0.0.1:5000",
+]}})
 
 env_path = Path(__file__).parent / "ini.env"
 load_dotenv(dotenv_path=env_path)
